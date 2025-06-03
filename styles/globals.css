@@ -1,0 +1,26 @@
+@import url("./reset.css");
+@import url("./abstracts.css");
+
+@media (prefers-color-scheme: dark) {
+  body {
+    --color-foreground: var(--color-primary);
+    --color-background: var(--color-secondary);
+  }
+}
+
+body {
+  color: var(--color-foreground);
+  background-color: var(--color-background);
+  font-family: var(--font-primary);
+}
+
+.global-layout {
+  display: grid;
+  gap: 1rem;
+  grid-template-rows: var(--layout-navbar-height) 1fr var(--layout-footer-height);
+  min-height: 100dvh;
+
+  >* {
+    width: 100%;
+  }
+}
