@@ -8,5 +8,10 @@
         height: var(--layout-footer-height);
         display: flex;
         align-items: center;
+        justify-content: center;
+    }
+
+    &__highlighted {
+        color: var(--color-accent);
     }
 }
