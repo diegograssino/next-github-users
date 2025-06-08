@@ -1,0 +1,12 @@
+.anchor {
+    span {
+        transition: all 1s ease-in-out;
+        text-decoration: none;
+    }
+
+    span {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

@@ -9,4 +9,8 @@
         justify-content: space-between;
         align-items: center;
     }
+
+    &__highlighted {
+        color: var(--color-accent);
+    }
 }

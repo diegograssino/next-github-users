@@ -1,0 +1,41 @@
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: var(--font-secondary);
+}
+
+
+.normal {
+    font-weight: 400;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.primary {
+    color: var(--color-secondary);
+}
+
+.secondary {
+    color: var(--color-primary);
+}
+
+.sm {
+    font-size: 0.875rem;
+}
+
+.md {
+    font-size: 1rem;
+}
+
+.lg {
+    font-size: 1.25rem;
+}
+
+.xl {
+    font-size: 2rem;
+}

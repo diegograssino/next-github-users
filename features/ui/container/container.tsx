@@ -6,8 +6,10 @@ const Container = ({
   as: Tag = "div",
   ...otherProps
 }: ContainerProps) => {
+  const { container } = styles;
+  
   return (
-    <Tag {...otherProps} className={styles.container}>
+    <Tag {...otherProps} className={container}>
       {children}
     </Tag>
   );
