@@ -7,13 +7,7 @@ import styles from "./card.module.css";
 const Card = ({ user }: CardProps) => {
   return (
     <article className={styles["card"]} data-testid="card">
-      <Image
-        className={styles["card__image"]}
-        src={user.avatar_url}
-        alt={user.login}
-        width={150}
-        height={150}
-      />
+      <Image src={user.avatar_url} alt={user.login} width={150} height={150} />
       <div className={styles["card__content"]}>
         <Typography as="h3" weight="bold" size="md">
           {user.login}
