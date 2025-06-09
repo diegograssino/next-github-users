@@ -6,13 +6,18 @@ import CardGrid, {
 } from "@/features/users/ui/card-grid/card-grid";
 import Card from "@/features/users/ui/card/card";
 import SearchInput from "@/features/users/ui/search-input/search-input";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroller";
 import { useDebounceValue, useMediaQuery } from "usehooks-ts";
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [debouncedSearch] = useDebounceValue(searchTerm, 1000);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const isMobile = useMediaQuery("(max-width: 30rem)");
   const isTablet = useMediaQuery("(max-width: 48rem)");
@@ -42,7 +47,9 @@ const Home = () => {
         placeholder="Search users..."
       />
       {isFetching && !users ? (
-        <CardGridSkeleton cards={Number(perPage)} />
+        isClient ? (
+          <CardGridSkeleton cards={Number(perPage)} />
+        ) : null
       ) : (
         <InfiniteScroll
           pageStart={0}
