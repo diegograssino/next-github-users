@@ -8,7 +8,14 @@ const FavsWidget = ({ id }: CardWidgetProps) => {
   const { checkFav, addFav, removeFav } = useContext(FavsContext);
   const isFav = checkFav(id);
 
-  const handleFav = () => (checkFav(id) ? removeFav(id) : addFav(id));
+  const handleFav = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (checkFav(id)) {
+      removeFav(id);
+    } else {
+      addFav(id);
+    }
+  };
 
   return (
     <button onClick={handleFav} data-testid="card-widget">

@@ -8,16 +8,10 @@ const Anchor = ({
   weight = "normal",
   variant = "secondary",
   size = "md",
-  withAccent = true,
   ...otherProps
 }: AnchorProps) => {
   return (
-    <Link
-      {...otherProps}
-      className={`${styles["anchor"]} ${
-        withAccent ? styles["anchor__with-accent"] : ""
-      }`}
-    >
+    <Link {...otherProps} className={styles["anchor"]}>
       <Typography weight={weight} variant={variant} size={size} as="span">
         {children}
       </Typography>

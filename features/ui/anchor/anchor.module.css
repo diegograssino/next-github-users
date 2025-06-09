@@ -1,13 +1,12 @@
 .anchor {
     span {
         transition: all .2s ease-in-out;
+        text-decoration: none;
     }
 
-    &--with-accent {
-        span {
-            &:hover {
-                color: var(--color-accent2)
-            }
+    span {
+        &:hover {
+            text-decoration: underline;
         }
     }
 

@@ -5,53 +5,65 @@ import CardGrid, {
   CardGridSkeleton,
 } from "@/features/users/ui/card-grid/card-grid";
 import Card from "@/features/users/ui/card/card";
+import SearchInput from "@/features/users/ui/search-input/search-input";
+import { useState } from "react";
 import InfiniteScroll from "react-infinite-scroller";
-import { useMediaQuery } from "usehooks-ts";
+import { useDebounceValue, useMediaQuery } from "usehooks-ts";
 
 const Home = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [debouncedSearch] = useDebounceValue(searchTerm, 1000);
+
+  const isMobile = useMediaQuery("(max-width: 480px)");
+  const isTablet = useMediaQuery("(max-width: 768px)");
+
   const {
     data: users,
     error,
     fetchNextPage,
     hasNextPage,
     isFetching,
-  } = useInfiniteUsers();
-
-  const isMobile = useMediaQuery("(max-width: 480px)");
-  const isTablet = useMediaQuery("(max-width: 768px)");
-
-  if (isFetching && !users)
-    return <CardGridSkeleton cards={isTablet && !isMobile ? 2 : 3} />;
+  } = useInfiniteUsers(debouncedSearch, isTablet && !isMobile ? "40" : "42");
 
   if (error)
     return (
       <Typography weight="bold" size="xl" as="h2">
-        An error has occurred while fetching users. Ty Again later.
+        An error has occurred while fetching users. Try again later.
       </Typography>
     );
 
   return (
     <>
-      <InfiniteScroll
-        pageStart={0}
-        loadMore={() => hasNextPage && !isFetching && fetchNextPage()}
-        hasMore={hasNextPage}
-        loader={
-          <CardGridSkeleton
-            cards={isTablet && !isMobile ? 2 : 3}
-            key="card-skeleton"
-          />
-        }
-      >
-        <CardGrid>
-          {users?.pages
-            .map((page) => page.users)
-            .flat()
-            .map((user, i) => (
-              <Card key={i} user={user} />
-            ))}
-        </CardGrid>
-      </InfiniteScroll>
+      <SearchInput
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        autoFocus
+        placeholder="Search users..."
+      />
+      {isFetching && !users ? (
+        <CardGridSkeleton cards={isTablet && !isMobile ? 4 : 6} />
+      ) : (
+        <InfiniteScroll
+          pageStart={0}
+          loadMore={() => hasNextPage && !isFetching && fetchNextPage()}
+          hasMore={hasNextPage}
+          loader={
+            <CardGridSkeleton
+              cards={isTablet && !isMobile ? 4 : 6}
+              key="card-skeleton"
+            />
+          }
+        >
+          <CardGrid>
+            {users?.pages
+              .map((page) => page.users)
+              .flat()
+              .map((user, i) => (
+                <Card key={user.id ?? i} user={user} />
+              ))}
+          </CardGrid>
+        </InfiniteScroll>
+      )}
     </>
   );
 };

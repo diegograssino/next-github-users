@@ -1,0 +1,9 @@
+.search-input {
+    width: 100%;
+    box-sizing: border-box;
+    border-color: var(--color-accent2);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+}

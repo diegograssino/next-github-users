@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Anchor from "../anchor/anchor";
 import Container from "../container/container";
+import FavsAnchor from "../favs-anchor/favs-anchor";
 import Typography from "../typography/typography";
 import styles from "./header.module.css";
 
@@ -18,9 +18,7 @@ const Header = () => {
           </Link>
           <ul>
             <li>
-              <Anchor variant="primary" href="./favs">
-                Favs
-              </Anchor>
+              <FavsAnchor />
             </li>
           </ul>
         </nav>

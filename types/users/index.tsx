@@ -1,3 +1,5 @@
+import { InputHTMLAttributes } from "react";
+
 export interface User {
   login: string;
   id: number;
@@ -170,4 +172,14 @@ export interface UserDetailProps {
 
 export interface CardGridSkeletonProps {
   cards?: number;
+}
+
+export interface SearchInputProps
+  extends InputHTMLAttributes<HTMLInputElement> {
+  value: string;
+}
+
+export interface SortButtonProps {
+  sortOrder: boolean;
+  onSort: () => void;
 }

@@ -6,17 +6,24 @@ import CardGrid, {
   CardGridSkeleton,
 } from "@/features/users/ui/card-grid/card-grid";
 import Card from "@/features/users/ui/card/card";
+import SortButton from "@/features/users/ui/sort-button/sort-button";
 import { useQueries } from "@tanstack/react-query";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { useMediaQuery } from "usehooks-ts";
 
 export default function Favs() {
   const { favs } = useContext(FavsContext);
+
+  const isMobile = useMediaQuery("(max-width: 480px)");
+  const isTablet = useMediaQuery("(max-width: 768px)");
+
+  const [sortOrder, setSortOrder] = useState(true);
 
   const users = useQueries({
     queries: favs.map((id) => ({
       queryKey: ["user", id],
       queryFn: () => fetchUser(id),
-      staleTime: 1000 * 60 * 10,
+      staleTime: 1000 * 60,
     })),
   });
 
@@ -29,7 +36,8 @@ export default function Favs() {
   }
 
   const isLoading = users.some((q) => q.isLoading);
-  if (isLoading) return <CardGridSkeleton />;
+  if (isLoading)
+    return <CardGridSkeleton cards={isTablet && !isMobile ? 4 : 6} />;
 
   const isError = users.some((q) => q.isError);
   if (isError)
@@ -39,14 +47,21 @@ export default function Favs() {
       </Typography>
     );
 
+  const loadedUsers = users.map((u) => u.data).filter(Boolean);
+
+  const sortedUsers = [...loadedUsers].sort((a, b) =>
+    sortOrder ? a.login.localeCompare(b.login) : b.login.localeCompare(a.login)
+  );
+
+  const handleSort = () => setSortOrder((prev) => !prev);
+
   return (
     <>
+      <SortButton onSort={handleSort} sortOrder={sortOrder} />
       <CardGrid>
-        {users.map((u, i) => {
-          const user = u.data;
-          if (!user) return null;
-          return <Card key={user.login + i} user={user} />;
-        })}
+        {sortedUsers.map((user, i) => (
+          <Card key={user.login + i} user={user} />
+        ))}
       </CardGrid>
     </>
   );
