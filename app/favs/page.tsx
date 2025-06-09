@@ -14,8 +14,8 @@ import { useMediaQuery } from "usehooks-ts";
 export default function Favs() {
   const { favs } = useContext(FavsContext);
 
-  const isMobile = useMediaQuery("(max-width: 480px)");
-  const isTablet = useMediaQuery("(max-width: 768px)");
+  const isMobile = useMediaQuery("(max-width: 30rem)");
+  const isTablet = useMediaQuery("(max-width: 48rem)");
 
   const [sortOrder, setSortOrder] = useState(true);
 

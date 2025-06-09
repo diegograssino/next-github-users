@@ -183,3 +183,10 @@ export interface SortButtonProps {
   sortOrder: boolean;
   onSort: () => void;
 }
+
+interface Params {
+  [key: string]: string;
+}
+export interface UserPageProps {
+  params?: Promise<Params>;
+}

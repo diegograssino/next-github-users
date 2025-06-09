@@ -14,8 +14,8 @@ const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [debouncedSearch] = useDebounceValue(searchTerm, 1000);
 
-  const isMobile = useMediaQuery("(max-width: 480px)");
-  const isTablet = useMediaQuery("(max-width: 768px)");
+  const isMobile = useMediaQuery("(max-width: 30rem)");
+  const isTablet = useMediaQuery("(max-width: 48rem)");
 
   const {
     data: users,
