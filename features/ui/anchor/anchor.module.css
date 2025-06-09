@@ -3,9 +3,12 @@
         transition: all .2s ease-in-out;
     }
 
-    span {
-        &:hover {
-            color: var(--color-accent)
+    &--with-accent {
+        span {
+            &:hover {
+                color: var(--color-accent2)
+            }
         }
     }
+
 }

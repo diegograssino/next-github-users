@@ -28,9 +28,10 @@ export interface AnchorProps extends React.ComponentProps<typeof Link> {
   variant?: Variants;
   size?: Sizes;
   weight?: "normal" | "bold";
+  withAccent?: boolean;
 }
 
-export type IconNames = "star-empty" | "star";
+export type IconNames = "star-empty" | "star" | "arrow-right";
 export interface IconProps {
   name: IconNames;
   variant?: Variants;

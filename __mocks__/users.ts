@@ -673,4 +673,28 @@ export const usersMock = [
     user_view_type: "public",
     site_admin: false,
   },
+  ...Array.from({ length: 200 }, (_, i) => {
+    const id = 100 + i;
+    return {
+      login: `mockuser${id}`,
+      id,
+      node_id: `MDQ6VXNlcj${id}`,
+      avatar_url: `https://avatars.githubusercontent.com/u/${id}?v=4`,
+      gravatar_id: "",
+      url: `https://api.github.com/users/mockuser${id}`,
+      html_url: `https://github.com/mockuser${id}`,
+      followers_url: `https://api.github.com/users/mockuser${id}/followers`,
+      following_url: `https://api.github.com/users/mockuser${id}/following{/other_user}`,
+      gists_url: `https://api.github.com/users/mockuser${id}/gists{/gist_id}`,
+      starred_url: `https://api.github.com/users/mockuser${id}/starred{/owner}{/repo}`,
+      subscriptions_url: `https://api.github.com/users/mockuser${id}/subscriptions`,
+      organizations_url: `https://api.github.com/users/mockuser${id}/orgs`,
+      repos_url: `https://api.github.com/users/mockuser${id}/repos`,
+      events_url: `https://api.github.com/users/mockuser${id}/events{/privacy}`,
+      received_events_url: `https://api.github.com/users/mockuser${id}/received_events`,
+      type: "User",
+      user_view_type: "public",
+      site_admin: false,
+    };
+  }),
 ];

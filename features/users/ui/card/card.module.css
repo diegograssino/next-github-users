@@ -18,11 +18,11 @@
         overflow: hidden;
     }
 
-
     &__options {
         padding: 1rem;
         position: absolute;
         bottom: 0;
         right: 0;
     }
+
 }

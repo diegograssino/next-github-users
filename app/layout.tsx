@@ -2,6 +2,7 @@ import { Container, Footer, Header } from "@/features/ui";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Poppins, Roboto } from "next/font/google";
+import Providers from "./providers";
 
 export const primaryFont = Roboto({
   variable: "--font-primary",
@@ -26,17 +27,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${primaryFont.variable} ${secondaryFont.variable}`}
-    >
-      <body>
-        <div className="global-layout">
-          <Header />
-          <Container as="main">{children}</Container>
-          <Footer />
-        </div>
-      </body>
-    </html>
+    <Providers>
+      <html
+        lang="en"
+        className={`${primaryFont.variable} ${secondaryFont.variable}`}
+      >
+        <body>
+          <div className="global-layout">
+            <Header />
+            <Container as="main">{children}</Container>
+            <Footer />
+          </div>
+        </body>
+      </html>
+    </Providers>
   );
 }
