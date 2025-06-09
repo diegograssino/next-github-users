@@ -16,6 +16,7 @@ export default function Favs() {
 
   const isMobile = useMediaQuery("(max-width: 30rem)");
   const isTablet = useMediaQuery("(max-width: 48rem)");
+  const perPage = isMobile ? "6" : isTablet ? "12" : "15";
 
   const [sortOrder, setSortOrder] = useState(true);
 
@@ -23,7 +24,6 @@ export default function Favs() {
     queries: favs.map((id) => ({
       queryKey: ["user", id],
       queryFn: () => fetchUser(id),
-      staleTime: 1000 * 60,
     })),
   });
 
@@ -35,11 +35,10 @@ export default function Favs() {
     );
   }
 
-  const isLoading = users.some((q) => q.isLoading);
-  if (isLoading)
-    return <CardGridSkeleton cards={isTablet && !isMobile ? 4 : 6} />;
+  const isLoading = users.some((user) => user.isLoading);
+  if (isLoading) return <CardGridSkeleton cards={Number(perPage)} />;
 
-  const isError = users.some((q) => q.isError);
+  const isError = users.some((user) => user.isError);
   if (isError)
     return (
       <Typography weight="bold" size="xl" as="h2">
@@ -47,7 +46,7 @@ export default function Favs() {
       </Typography>
     );
 
-  const loadedUsers = users.map((u) => u.data).filter(Boolean);
+  const loadedUsers = users.map((user) => user.data).filter(Boolean);
 
   const sortedUsers = [...loadedUsers].sort((a, b) =>
     sortOrder ? a.login.localeCompare(b.login) : b.login.localeCompare(a.login)

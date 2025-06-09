@@ -16,6 +16,7 @@ const Home = () => {
 
   const isMobile = useMediaQuery("(max-width: 30rem)");
   const isTablet = useMediaQuery("(max-width: 48rem)");
+  const perPage = isMobile ? "6" : isTablet ? "12" : "15";
 
   const {
     data: users,
@@ -23,7 +24,7 @@ const Home = () => {
     fetchNextPage,
     hasNextPage,
     isFetching,
-  } = useInfiniteUsers(debouncedSearch, isTablet && !isMobile ? "40" : "42");
+  } = useInfiniteUsers(debouncedSearch, perPage);
 
   if (error)
     return (
@@ -41,17 +42,14 @@ const Home = () => {
         placeholder="Search users..."
       />
       {isFetching && !users ? (
-        <CardGridSkeleton cards={isTablet && !isMobile ? 4 : 6} />
+        <CardGridSkeleton cards={Number(perPage)} />
       ) : (
         <InfiniteScroll
           pageStart={0}
           loadMore={() => hasNextPage && !isFetching && fetchNextPage()}
           hasMore={hasNextPage}
           loader={
-            <CardGridSkeleton
-              cards={isTablet && !isMobile ? 4 : 6}
-              key="card-skeleton"
-            />
+            <CardGridSkeleton cards={Number(perPage)} key="card-skeleton" />
           }
         >
           <CardGrid>

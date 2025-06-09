@@ -26,12 +26,16 @@ function extractSince(url: string): string | null {
   }
 }
 
+const getFetchOptions = () => {
+  const token = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
+  return token ? { headers: { Authorization: `Bearer ${token}` } } : undefined;
+};
+
 export const fetchUser = async (id: number) => {
-  const res = await fetch(`https://api.github.com/user/${id}`, {
-    headers: {
-      Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`,
-    },
-  });
+  const res = await fetch(
+    `https://api.github.com/user/${id}`,
+    getFetchOptions()
+  );
   if (!res.ok) throw new Error(`Failed to fetch user ${id}`);
   return res.json();
 };
@@ -40,11 +44,10 @@ export const fetchUserDetail = async (
   id: number
 ): Promise<{ user: User; repos: Repo[] }> => {
   const user = await fetchUser(id);
-  const repos = await fetch(`https://api.github.com/user/${id}/repos`, {
-    headers: {
-      Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`,
-    },
-  });
+  const repos = await fetch(
+    `https://api.github.com/user/${id}/repos`,
+    getFetchOptions()
+  );
   if (!repos.ok) throw new Error(`Failed to fetch repos ${id}`);
   return { user, repos: await repos.json() };
 };
@@ -70,11 +73,7 @@ export const fetchUsers = async ({
     url = `https://api.github.com/users?since=${pageParam}&per_page=${perPageParam}`;
   }
 
-  const res = await fetch(url, {
-    headers: {
-      Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`,
-    },
-  });
+  const res = await fetch(url, getFetchOptions());
 
   if (!res.ok) throw new Error("Error fetching users");
 
