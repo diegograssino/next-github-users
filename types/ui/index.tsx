@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ElementType, HTMLAttributes, JSX } from "react";
 
-export type Variants = "primary" | "secondary";
+export type Variants = "primary" | "secondary" | "accent";
 
 export type Sizes = "sm" | "md" | "lg" | "xl";
 export interface ContainerProps extends HTMLAttributes<HTMLOrSVGElement> {

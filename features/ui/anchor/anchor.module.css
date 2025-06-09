@@ -1,12 +1,11 @@
 .anchor {
     span {
-        transition: all 1s ease-in-out;
-        text-decoration: none;
+        transition: all .2s ease-in-out;
     }
 
     span {
         &:hover {
-            text-decoration: underline;
+            color: var(--color-accent)
         }
     }
 }

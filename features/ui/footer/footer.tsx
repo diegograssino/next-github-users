@@ -9,7 +9,7 @@ const Footer = () => {
     <footer className={footer} data-testid="footer">
       <Container>
         <div className={footer__container}>
-          <Typography as="h2" size="lg" variant="secondary" weight="bold">
+          <Typography as="h2" size="lg" variant="primary" weight="bold">
             Github <span className={footer__highlighted}>Users</span>
           </Typography>
         </div>

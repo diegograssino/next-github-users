@@ -1,7 +1,19 @@
 import { Container, Footer, Header } from "@/features/ui";
-import { primaryFont, secondaryFont } from "@/styles/fonts";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
+import { Poppins, Roboto } from "next/font/google";
+
+export const primaryFont = Roboto({
+  variable: "--font-primary",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
+export const secondaryFont = Poppins({
+  variable: "--font-secondary",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Next Minimal Starter",
@@ -14,8 +26,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${primaryFont.variable} ${secondaryFont.variable}`}>
+    <html
+      lang="en"
+      className={`${primaryFont.variable} ${secondaryFont.variable}`}
+    >
+      <body>
         <div className="global-layout">
           <Header />
           <Container as="main">{children}</Container>

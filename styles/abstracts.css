@@ -2,6 +2,7 @@
     --color-primary: white;
     --color-secondary: black;
     --color-accent: gold;
+    --color-accent2: darkgray;
     --color-foreground: var(--color-secondary);
     --color-background: var(--color-primary);
     --layout-navbar-height: 3rem;

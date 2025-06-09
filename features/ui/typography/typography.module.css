@@ -1,13 +1,3 @@
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-    font-family: var(--font-secondary);
-}
-
-
 .normal {
     font-weight: 400;
 }
@@ -17,25 +7,41 @@
 }
 
 .primary {
-    color: var(--color-secondary);
-}
-
-.secondary {
     color: var(--color-primary);
 }
 
+.secondary {
+    color: var(--color-secondary);
+}
+
 .sm {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
+
+    @media (min-width: 1280px) {
+        font-size: 0.875rem;
+    }
 }
 
 .md {
-    font-size: 1rem;
+    font-size: 0.875rem;
+
+    @media (min-width: 1280px) {
+        font-size: 1rem;
+    }
 }
 
 .lg {
     font-size: 1.25rem;
+
+    @media (min-width: 1280px) {
+        font-size: 1.5rem;
+    }
 }
 
 .xl {
     font-size: 2rem;
+
+    @media (min-width: 1280px) {
+        font-size: 2.5rem;
+    }
 }

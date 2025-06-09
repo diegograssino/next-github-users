@@ -12,7 +12,7 @@ const Typography = ({
   return (
     <Tag
       {...otherProps}
-      className={`${styles[Tag]} ${styles[variant]} ${styles[weight]} ${styles[size]}`}
+      className={`${styles[variant]} ${styles[weight]} ${styles[size]}`}
     >
       {children}
     </Tag>
