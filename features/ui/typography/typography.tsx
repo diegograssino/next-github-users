@@ -7,16 +7,18 @@ const Typography = ({
   weight = "normal",
   variant = "secondary",
   size = "md",
+  hasEllipsis = false,
   ...otherProps
 }: TypographyProps) => {
   return (
     <Tag
       {...otherProps}
-      className={`${styles[variant]} ${styles[weight]} ${styles[size]}`}
+      className={`${styles[variant]} ${styles[weight]} ${styles[size]} ${
+        hasEllipsis ? styles.ellipsis : ""
+      }`}
     >
       {children}
     </Tag>
   );
 };
-
 export default Typography;

@@ -7,4 +7,7 @@
     --color-background: var(--color-primary);
     --layout-navbar-height: 3rem;
     --layout-footer-height: 4rem;
+    --screen-desktop: 80rem;
+    --screen-tablet: 48rem;
+    --screen-mobile: 30rem;
 }

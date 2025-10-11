@@ -16,6 +16,7 @@ export const CardGridSkeleton = ({ cards = 3 }: CardGridSkeletonProps) => {
 
 const CardGrid = ({ children }: CardGridProps) => {
   return (
+    // TODO Add skeleton logics here
     <div data-testid="card-grid" className={styles["card-grid"]}>
       {children}
     </div>

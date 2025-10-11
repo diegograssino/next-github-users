@@ -20,10 +20,7 @@ const Icon = ({ name, variant = "primary", size = "sm" }: IconProps) => {
   const iconElement = useMemo(() => icons[name], [name]);
   const fillColor = useMemo(() => `var(--color-${variant})`, [variant]);
   const strokeColor = useMemo(() => `var(--color-${variant})`, [variant]);
-  const viewBox = useMemo(
-    () => `0 0 ${sizeInPx + 4} ${sizeInPx + 4}`,
-    [sizeInPx]
-  );
+  const viewBox = useMemo(() => "0 0 24 24", []);
   const containerStyle = useMemo(
     () => ({
       width: sizeInPx,

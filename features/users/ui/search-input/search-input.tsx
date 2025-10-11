@@ -6,6 +6,7 @@ const SearchInput = ({
   onChange = () => {},
   ...otherProps
 }: SearchInputProps) => (
+  // TODO Add loader when searching
   <input
     value={value}
     onChange={onChange}

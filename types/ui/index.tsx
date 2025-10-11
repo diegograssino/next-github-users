@@ -22,6 +22,7 @@ export interface TypographyProps extends HTMLAttributes<HTMLOrSVGElement> {
   variant?: Variants;
   size?: Sizes;
   weight?: "normal" | "bold";
+  hasEllipsis?: boolean;
 }
 
 export interface AnchorProps extends React.ComponentProps<typeof Link> {

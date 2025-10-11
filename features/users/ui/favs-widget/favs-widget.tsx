@@ -22,7 +22,7 @@ const FavsWidget = ({ id }: CardWidgetProps) => {
 
   return (
     <button onClick={handleFav} data-testid="card-widget">
-      <Icon name={onFav ? "star" : "star-empty"} variant="accent" />
+      <Icon name={onFav ? "star" : "star-empty"} variant="accent" size="lg" />
     </button>
   );
 };

@@ -7,6 +7,7 @@ import FavsWidget from "../favs-widget/favs-widget";
 import styles from "./user-detail.module.css";
 
 const UserDetail = ({ user, repos }: UserDetailProps) => {
+  // TODO Fix UI
   return (
     <article className={styles["detail"]}>
       <div className={styles["detail__info-section"]}>
