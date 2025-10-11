@@ -1,44 +1,48 @@
-import { IconNames, IconProps, Sizes } from "@/types";
+import { IconProps, Sizes } from "@/types";
+import { useMemo } from "react";
 import { icons } from "./icons";
 
-const renderIcon = (name: IconNames) => {
-  return icons[name];
-};
-
-const getSizeInPx = (size: Sizes) => {
-  let sizeInPx;
-
+const getSizeInPx = (size: Sizes): number => {
   switch (size) {
     case "md":
-      sizeInPx = 24;
-      break;
+      return 24;
     case "lg":
-      sizeInPx = 32;
-      break;
+      return 32;
     case "xl":
-      sizeInPx = 48;
-      break;
+      return 48;
     default:
-      sizeInPx = 20;
+      return 20;
   }
-
-  return sizeInPx;
 };
 
 const Icon = ({ name, variant = "primary", size = "sm" }: IconProps) => {
-  const sizeInPx = getSizeInPx(size);
+  const sizeInPx = useMemo(() => getSizeInPx(size), [size]);
+  const iconElement = useMemo(() => icons[name], [name]);
+  const fillColor = useMemo(() => `var(--color-${variant})`, [variant]);
+  const strokeColor = useMemo(() => `var(--color-${variant})`, [variant]);
+  const viewBox = useMemo(
+    () => `0 0 ${sizeInPx + 4} ${sizeInPx + 4}`,
+    [sizeInPx]
+  );
+  const containerStyle = useMemo(
+    () => ({
+      width: sizeInPx,
+      height: sizeInPx,
+    }),
+    [sizeInPx]
+  );
 
   return (
-    <div data-testid="icon" style={{ width: sizeInPx, height: sizeInPx }}>
+    <div data-testid="icon" style={containerStyle}>
       <svg
-        fill={`var(--color-${variant})`}
-        stroke={`var(--color-${variant})`}
+        fill={fillColor}
+        stroke={strokeColor}
         width={sizeInPx}
         height={sizeInPx}
         xmlns="http://www.w3.org/2000/svg"
-        viewBox={`0 0 ${sizeInPx + 4} ${sizeInPx + 4}`}
+        viewBox={viewBox}
       >
-        {renderIcon(name)}
+        {iconElement}
       </svg>
     </div>
   );
