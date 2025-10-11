@@ -15,6 +15,7 @@ export default function Favs() {
   const isTablet = useMediaQuery("(max-width: 48rem)");
   const perPage = isMobile ? "6" : isTablet ? "12" : "15";
 
+  // TODO move fetching logic to a service
   const users = useQueries({
     queries: favs.map((id) => ({
       queryKey: ["user", id],

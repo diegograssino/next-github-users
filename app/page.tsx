@@ -23,6 +23,7 @@ const Home = () => {
     hasNextPage,
     isFetching,
   } = useInfiniteUsers(debouncedSearch, perPage);
+  // TODO move fetching logic to a service and UI to page contents folder on features
   const handleSearchChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       setSearchTerm(e.target.value);
