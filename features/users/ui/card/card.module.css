@@ -10,7 +10,7 @@
     overflow: hidden;
 
     &:hover {
-        border-color: var(--color-secondary);
+        border-width: var(--color-foreground);
     }
 
     &:hover img {

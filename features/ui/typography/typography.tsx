@@ -5,15 +5,17 @@ const Typography = ({
   children,
   as: Tag = "p",
   weight = "normal",
-  variant = "secondary",
   size = "md",
   hasEllipsis = false,
+  hasInverseColors = false,
   ...otherProps
 }: TypographyProps) => {
   return (
     <Tag
       {...otherProps}
-      className={`${styles[variant]} ${styles[weight]} ${styles[size]} ${
+      className={`${
+        hasInverseColors ? styles.typography : styles["typography-inverse"]
+      } ${styles[weight]} ${styles[size]} ${
         hasEllipsis ? styles.ellipsis : ""
       }`}
     >

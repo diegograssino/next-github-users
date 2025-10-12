@@ -19,10 +19,10 @@ type TypographyElements =
   | "h6";
 export interface TypographyProps extends HTMLAttributes<HTMLOrSVGElement> {
   as?: TypographyElements;
-  variant?: Variants;
   size?: Sizes;
   weight?: "normal" | "bold";
   hasEllipsis?: boolean;
+  hasInverseColors?: boolean;
 }
 
 export interface AnchorProps extends React.ComponentProps<typeof Link> {

@@ -1,17 +1,25 @@
+.typography {
+    color: var(--color-foreground);
+
+    @media (prefers-color-scheme: dark) {
+        color: var(--color-background);
+    }
+}
+
+.typography-inverse {
+    color: var(--color-background);
+
+    @media (prefers-color-scheme: dark) {
+        color: var(--color-foreground);
+    }
+}
+
 .normal {
     font-weight: 400;
 }
 
 .bold {
     font-weight: 700;
-}
-
-.primary {
-    color: var(--color-primary);
-}
-
-.secondary {
-    color: var(--color-secondary);
 }
 
 .sm {
