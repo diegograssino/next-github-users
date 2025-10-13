@@ -24,6 +24,8 @@ const Home = () => {
     isFetching,
   } = useInfiniteUsers(debouncedSearch, perPage);
   // TODO move fetching logic to a service and UI to page contents folder on features
+  // TODO GLOBAL implement react aria for accessibility
+
   const handleSearchChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       setSearchTerm(e.target.value);

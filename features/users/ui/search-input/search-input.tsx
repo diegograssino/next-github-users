@@ -10,6 +10,7 @@ const SearchInput = ({
   onChange = () => {},
   ...otherProps
 }: SearchInputProps) => {
+  // TODO Should be smaller on mobile
   const { isLoading } = useContext(SharedContext);
 
   return (

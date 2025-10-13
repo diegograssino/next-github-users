@@ -6,6 +6,10 @@ import FavsWidget from "../favs-widget/favs-widget";
 import styles from "./card.module.css";
 
 const Card = ({ user }: CardProps) => {
+  // TODO Add more info to the card
+  // TODO Improve card design
+  // TODO The image should have a placeholder and a better loading strategy
+
   return (
     <Link href={`/${user.id}`} data-testid="card">
       <article className={styles["card"]}>
