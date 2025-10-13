@@ -1,3 +1,4 @@
+import { pageMessages } from "@/features/ui/page-message/page-messages";
 import Link from "next/link";
 import { ElementType, HTMLAttributes, JSX } from "react";
 
@@ -48,3 +49,7 @@ export interface IconProps {
 export type Icons = {
   [key in IconNames]: JSX.Element;
 };
+
+export interface PageMessageProps {
+  message: keyof typeof pageMessages;
+}

@@ -11,6 +11,7 @@ const SearchInput = ({
   ...otherProps
 }: SearchInputProps) => {
   // TODO Should be smaller on mobile
+  // TODO The spinner is not centered
   const { isLoading } = useContext(SharedContext);
 
   return (
