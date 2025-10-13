@@ -8,13 +8,11 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
   const queryClient = new QueryClient();
 
   return (
-    <SharedProvider>
-      <FavsProvider>
-        <QueryClientProvider client={queryClient}>
-          {children}
-        </QueryClientProvider>
-      </FavsProvider>
-    </SharedProvider>
+    <QueryClientProvider client={queryClient}>
+      <SharedProvider>
+        <FavsProvider>{children}</FavsProvider>
+      </SharedProvider>
+    </QueryClientProvider>
   );
 };
 

@@ -32,11 +32,17 @@ export interface AnchorProps extends React.ComponentProps<typeof Link> {
   withAccent?: boolean;
 }
 
-export type IconNames = "star-empty" | "star" | "arrow-right";
+export type IconNames =
+  | "star-empty"
+  | "star"
+  | "arrow-right"
+  | "search"
+  | "spinner";
 export interface IconProps {
   name: IconNames;
-  variant?: Variants;
   size?: Sizes;
+  hasInverseColors?: boolean;
+  fill?: "accent" | "accent2" | null;
 }
 
 export type Icons = {
