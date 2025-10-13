@@ -1,14 +1,13 @@
 import { CardGridProps, CardGridSkeletonProps } from "@/types";
 import styles from "./card-grid.module.css";
 
+const { cardGrid, cardGridSkeleton } = styles;
+
 export const CardGridSkeleton = ({ cards = 3 }: CardGridSkeletonProps) => {
   return (
-    <div className={styles["card-grid"]} data-testid="card-grid-skeleton">
+    <div className={cardGridSkeleton} data-testid="card-grid-skeleton">
       {Array.from({ length: cards }).map((_, i) => (
-        <div
-          className={styles["card-grid__skeleton"]}
-          key={"card-skeleton-" + i}
-        />
+        <div className={cardGridSkeleton} key={"card-skeleton-" + i} />
       ))}
     </div>
   );
@@ -17,7 +16,7 @@ export const CardGridSkeleton = ({ cards = 3 }: CardGridSkeletonProps) => {
 const CardGrid = ({ children }: CardGridProps) => {
   return (
     // TODO Add skeleton logics here
-    <div data-testid="card-grid" className={styles["card-grid"]}>
+    <div data-testid="card-grid" className={cardGrid}>
       {children}
     </div>
   );

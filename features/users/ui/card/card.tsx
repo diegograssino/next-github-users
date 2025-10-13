@@ -5,6 +5,8 @@ import Link from "next/link";
 import FavsWidget from "../favs-widget/favs-widget";
 import styles from "./card.module.css";
 
+const { card, cardContent, cardOptions } = styles;
+
 const Card = ({ user }: CardProps) => {
   // TODO Add more info to the card
   // TODO Improve card design
@@ -12,7 +14,7 @@ const Card = ({ user }: CardProps) => {
 
   return (
     <Link href={`/${user.id}`} data-testid="card">
-      <article className={styles["card"]}>
+      <article className={card}>
         <Image
           src={user.avatar_url}
           alt={user.login}
@@ -20,12 +22,12 @@ const Card = ({ user }: CardProps) => {
           height={150}
           priority
         />
-        <div className={styles["card__content"]}>
+        <div className={cardContent}>
           <Typography as="h3" weight="bold" size="lg" hasEllipsis>
             {user.login}
           </Typography>
         </div>
-        <div className={styles["card__options"]}>
+        <div className={cardOptions}>
           <FavsWidget id={user.id} />
         </div>
       </article>

@@ -6,7 +6,7 @@
     }
 }
 
-.typography-inverse {
+.typographyInverse {
     color: var(--color-background);
 
     @media (prefers-color-scheme: dark) {

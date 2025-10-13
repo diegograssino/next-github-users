@@ -1,5 +1,6 @@
 import { Container, Footer, Header } from "@/features/ui";
 import "@/styles/globals.css";
+import clsx from "clsx";
 import type { Metadata } from "next";
 import { Poppins, Roboto } from "next/font/google";
 import Providers from "./providers";
@@ -34,10 +35,10 @@ export default function RootLayout({
     <Providers>
       <html
         lang="en"
-        className={`${primaryFont.variable} ${secondaryFont.variable}`}
+        className={clsx(primaryFont.variable, secondaryFont.variable)}
       >
         <body>
-          <div className="global-layout">
+          <div className="globalLayout">
             <Header />
             <Container as="main">{children}</Container>
             <Footer />

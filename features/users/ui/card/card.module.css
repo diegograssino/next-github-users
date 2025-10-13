@@ -22,12 +22,12 @@
         transform-origin: center;
     }
 
-    &__content {
+    &Content {
         padding: 1rem;
         overflow: hidden;
     }
 
-    &__options {
+    &Options {
         padding: 1rem;
         position: absolute;
         bottom: 0;

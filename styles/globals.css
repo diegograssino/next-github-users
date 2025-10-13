@@ -23,7 +23,7 @@ h6 {
   font-family: var(--font-secondary);
 }
 
-.global-layout {
+.globalLayout {
   display: grid;
   gap: 1rem;
   grid-template-rows: var(--layout-navbar-height) 1fr var(--layout-footer-height);

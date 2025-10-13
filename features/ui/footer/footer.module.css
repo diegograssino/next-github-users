@@ -4,14 +4,14 @@
     box-shadow: 0 -2px 4px 0 rgba(255, 255, 255, .05);
     position: relative;
 
-    &__container {
+    &Container {
         height: var(--layout-footer-height);
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
-    &__highlighted {
+    &Highlighted {
         color: var(--color-accent);
     }
 }
