@@ -1,8 +1,20 @@
 .typography {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--font-secondary);
+    }
+}
+
+.default {
     color: var(--color-foreground);
 }
 
-.typographyInverse {
+.inverse {
     color: var(--color-background);
 }
 

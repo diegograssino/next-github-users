@@ -2,25 +2,25 @@ import { TypographyProps } from "@/types";
 import clsx from "clsx";
 import styles from "./typography.module.css";
 
-const { typography, typographyInverse, ellipsis } = styles;
+const { ellipsis } = styles;
 
 const Typography = ({
   children,
   as: Tag = "p",
   weight = "normal",
   size = "md",
-  hasEllipsis = false,
-  hasInverseColors = false,
+  truncate = false,
+  variant = "default",
   ...otherProps
 }: TypographyProps) => {
   return (
     <Tag
       {...otherProps}
       className={clsx(
-        !hasInverseColors ? typography : typographyInverse,
+        styles[variant],
         styles[weight],
         styles[size],
-        hasEllipsis && ellipsis
+        truncate && ellipsis
       )}
     >
       {children}

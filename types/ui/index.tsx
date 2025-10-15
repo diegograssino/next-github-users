@@ -3,6 +3,8 @@ import Link from "next/link";
 import { ElementType, HTMLAttributes, JSX } from "react";
 
 export type Variants = "primary" | "secondary" | "accent";
+export type TypographyColorVariants = "default" | "inverse";
+export type TypographyWeightVariants = "normal" | "bold";
 
 export type Sizes = "sm" | "md" | "lg" | "xl";
 export interface ContainerProps extends HTMLAttributes<HTMLOrSVGElement> {
@@ -21,9 +23,9 @@ type TypographyElements =
 export interface TypographyProps extends HTMLAttributes<HTMLOrSVGElement> {
   as?: TypographyElements;
   size?: Sizes;
-  weight?: "normal" | "bold";
-  hasEllipsis?: boolean;
-  hasInverseColors?: boolean;
+  weight?: TypographyWeightVariants;
+  truncate?: boolean;
+  variant?: TypographyColorVariants;
 }
 
 export interface AnchorProps extends React.ComponentProps<typeof Link> {
