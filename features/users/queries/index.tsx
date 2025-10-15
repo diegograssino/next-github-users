@@ -1,4 +1,5 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
+import { useCallback, useMemo } from "react";
 import { fetchUsers } from "../services";
 
 export const useInfiniteUsers = (query = "", perPage = "20") => {
@@ -23,14 +24,36 @@ export const useInfiniteUsers = (query = "", perPage = "20") => {
     staleTime: 1000 * 60,
   });
 
+  const handleLoadMore = useCallback(() => {
+    if (hasNextPage && !isFetching) {
+      fetchNextPage();
+    }
+  }, [hasNextPage, isFetching, fetchNextPage]);
+  const flattenedUsers = useMemo(() => {
+    return data?.pages.map((page) => page.users).flat() || [];
+  }, [data]);
+  const isNoResults = useMemo(() => {
+    return flattenedUsers.length === 0 && !isFetching;
+  }, [flattenedUsers, isFetching]);
+  const isLoading = useMemo(() => {
+    return isFetching && flattenedUsers.length === 0;
+  }, [isFetching, flattenedUsers]);
+  const isMore = useMemo(() => {
+    return hasNextPage && !isFetching;
+  }, [hasNextPage, isFetching]);
+
   return {
-    data,
-    error,
+    users: flattenedUsers,
+    isError: error,
     fetchNextPage,
     hasNextPage,
     isFetching,
     isFetchingNextPage,
     status,
+    isMore,
+    isLoading,
+    isNoResults,
+    handleLoadMore,
   };
 };
 
