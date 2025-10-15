@@ -1,13 +1,6 @@
 @import url("./reset.css");
 @import url("./abstracts.css");
 
-@media (prefers-color-scheme: dark) {
-  body {
-    --color-foreground: var(--color-primary);
-    --color-background: var(--color-secondary);
-  }
-}
-
 body {
   color: var(--color-foreground);
   background-color: var(--color-background);

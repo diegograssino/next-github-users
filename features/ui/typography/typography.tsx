@@ -17,7 +17,7 @@ const Typography = ({
     <Tag
       {...otherProps}
       className={clsx(
-        hasInverseColors ? typography : typographyInverse,
+        !hasInverseColors ? typography : typographyInverse,
         styles[weight],
         styles[size],
         hasEllipsis && ellipsis

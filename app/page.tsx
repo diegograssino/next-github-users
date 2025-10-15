@@ -13,6 +13,7 @@ const Home = () => {
   // TODO evaluate moving fetching/ grid logic
   // TODO Implement ssr first page
   // TODO Implement skeletons
+  // TODO Move page content to a separate component
 
   const [searchTerm, setSearchTerm] = useState("");
   const [debouncedSearch] = useDebounceValue(searchTerm, 1000);
@@ -42,15 +43,12 @@ const Home = () => {
   const flattenedUsers = useMemo(() => {
     return users?.pages.map((page) => page.users).flat() || [];
   }, [users]);
-
   const isNoResults = useMemo(() => {
     return flattenedUsers.length === 0 && !isFetching;
   }, [flattenedUsers, isFetching]);
-
   const isLoading = useMemo(() => {
     return isFetching && flattenedUsers.length === 0;
   }, [isFetching, flattenedUsers]);
-
   const isMore = useMemo(() => {
     return hasNextPage && !isFetching;
   }, [hasNextPage, isFetching]);
