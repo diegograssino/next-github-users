@@ -23,7 +23,7 @@ const Card = ({ user }: CardProps) => {
           priority
         />
         <div className={cardContent}>
-          <Typography as="h3" weight="bold" size="lg" hasEllipsis>
+          <Typography as="h3" weight="bold" size="lg" truncate>
             {user.login}
           </Typography>
         </div>

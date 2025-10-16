@@ -4,11 +4,12 @@ import useInfiniteUsers from "@/features/users/queries";
 import CardGrid from "@/features/users/ui/card-grid/card-grid";
 import Card from "@/features/users/ui/card/card";
 import SearchInput from "@/features/users/ui/search-input/search-input";
+import { HomePageProps } from "@/types";
 import { useCallback, useMemo, useState } from "react";
 import InfiniteScroll from "react-infinite-scroller";
 import { useDebounceValue, useMediaQuery } from "usehooks-ts";
 
-const HomePage = () => {
+const HomePage = ({ initialUsers }: HomePageProps) => {
   // TODO Implement skeletons
   // TODO evaluate moving grid logic or change grid layout to 1 per row to remove it
 
@@ -20,7 +21,7 @@ const HomePage = () => {
     return isMobile ? "6" : isTablet ? "12" : "15";
   }, [isMobile, isTablet]);
   const { users, isError, isLoading, isNoResults, isMore, handleLoadMore } =
-    useInfiniteUsers(debouncedSearch, perPage);
+    useInfiniteUsers(debouncedSearch, perPage, initialUsers);
   const handleSearchChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       setSearchTerm(e.target.value);

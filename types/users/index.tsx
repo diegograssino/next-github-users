@@ -1,5 +1,17 @@
 import { InputHTMLAttributes } from "react";
 
+export interface FetchUsersResult {
+  users: User[];
+  nextSince: string | null;
+  totalCount: number | null;
+}
+
+export interface FetchUsersParams {
+  perPageParam?: string;
+  pageParam?: string;
+  queryParam?: string;
+}
+
 export interface User {
   login: string;
   id: number;

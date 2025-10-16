@@ -1,9 +1,14 @@
 import HomePage from "@/features/pages/home-page/home-page";
+import { fetchUsersAction } from "@/features/users/server/actions";
 
-const Home = () => {
+const Home = async () => {
   // TODO GLOBAL implement react aria for accessibility
-  // TODO Implement ssr first page
-  return <HomePage />;
+
+  const initialUsers = await fetchUsersAction({
+    perPageParam: "15",
+    pageParam: "0",
+  });
+  return <HomePage initialUsers={initialUsers} />;
 };
 
 export default Home;
