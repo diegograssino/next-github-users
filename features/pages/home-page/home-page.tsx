@@ -49,6 +49,7 @@ const HomePage = ({ initialUsers }: HomePageProps) => {
           pageStart={0}
           loadMore={handleLoadMore}
           hasMore={isMore}
+          //   TODO Check if we can detect the page height to adjust the value as high as possible
           threshold={700}
         >
           <CardGrid>
