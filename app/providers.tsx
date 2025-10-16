@@ -2,6 +2,7 @@
 import { SharedProvider } from "@/features/shared/contexts/shared-context";
 import { FavsProvider } from "@/features/users/contexts/favs-context";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import React from "react";
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
@@ -12,6 +13,7 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
       <SharedProvider>
         <FavsProvider>{children}</FavsProvider>
       </SharedProvider>
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 };
