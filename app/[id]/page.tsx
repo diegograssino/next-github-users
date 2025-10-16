@@ -7,7 +7,7 @@ import { Params } from "next/dist/server/request/params";
 export default async function UserPage({ params }: UserPageProps) {
   const { id } = (await params) as Params;
   const { user, repos } = await fetchUserDetail(Number(id));
-
+  // TODO explore implement slugs with username
   if (!user) {
     return (
       <Typography weight="bold" size="xl" as="h2">
