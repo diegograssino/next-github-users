@@ -1,25 +1,28 @@
 "use client";
 import Icon from "@/features/ui/icon/icon";
 import { CardWidgetProps } from "@/types";
-import { useContext } from "react";
+import { useCallback, useContext, useMemo } from "react";
 import { FavsContext } from "../../contexts/favs-context";
 
 const FavsWidget = ({ id }: CardWidgetProps) => {
-  const { checkFav, addFav, removeFav } = useContext(FavsContext);
-  const isFav = checkFav(id);
+  const { isFav, addFav, removeFav } = useContext(FavsContext);
+  const onFav = useMemo(() => isFav(id), [isFav, id]);
 
-  const handleFav = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    if (checkFav(id)) {
-      removeFav(id);
-    } else {
-      addFav(id);
-    }
-  };
+  const handleFav = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>) => {
+      e.preventDefault();
+      if (onFav) {
+        removeFav(id);
+      } else {
+        addFav(id);
+      }
+    },
+    [onFav, addFav, removeFav, id]
+  );
 
   return (
     <button onClick={handleFav} data-testid="card-widget">
-      <Icon name={isFav ? "star" : "star-empty"} variant="accent" />
+      <Icon name={onFav ? "star" : "star-empty"} fill="accent" size="lg" />
     </button>
   );
 };

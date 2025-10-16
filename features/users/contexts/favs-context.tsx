@@ -1,5 +1,13 @@
 "use client";
-import { createContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
+import { SharedContext } from "../../shared/contexts/shared-context";
 
 interface FavsProviderProps {
   children: React.ReactNode;
@@ -9,54 +17,71 @@ interface FavsContextProps {
   favs: number[];
   addFav: (id: number) => void;
   removeFav: (id: number) => void;
-  checkFav: (id: number) => boolean;
+  isFav: (id: number) => boolean;
 }
 
 export const FavsContext = createContext<FavsContextProps>({
   favs: [],
   addFav: () => {},
   removeFav: () => {},
-  checkFav: () => false,
+  isFav: () => false,
 });
 
 export const FavsProvider = ({ children }: FavsProviderProps) => {
   const [favs, setFavs] = useState<number[]>([]);
-  const [isClient, setIsClient] = useState(false);
+  const sharedContext = useContext(SharedContext);
+
+  if (!sharedContext) {
+    // TODO Handle this error properly
+    throw new Error("FavsProvider must be used within a SharedProvider");
+  }
+
+  const { isClient } = sharedContext;
 
   useEffect(() => {
     if (isClient) {
       localStorage.setItem("favs", JSON.stringify(favs));
-    } else {
-      setIsClient(true);
     }
-  }, [favs]);
+  }, [favs, isClient]);
 
   useEffect(() => {
-    if (typeof window !== "undefined" && window.localStorage) {
+    if (isClient && typeof window !== "undefined" && window.localStorage) {
       const localFavs = localStorage.getItem("favs") || "[]";
       setFavs(JSON.parse(localFavs));
     }
+  }, [isClient]);
+
+  const addFav = useCallback((id: number) => {
+    setFavs((currentFavs) => {
+      if (!currentFavs.some((fav) => fav === id)) {
+        return [...currentFavs, id];
+      }
+      return currentFavs;
+    });
   }, []);
 
-  const addFav = (id: number) => {
-    if (!favs.some((fav) => fav === id)) {
-      const newFavs = [...favs, id];
-      setFavs(newFavs);
-    }
-  };
+  const removeFav = useCallback((id: number) => {
+    setFavs((currentFavs) => currentFavs.filter((fav) => fav !== id));
+  }, []);
 
-  const removeFav = (id: number) => {
-    const newFavs = favs.filter((fav) => fav !== id);
-    setFavs(newFavs);
-  };
+  const isFav = useCallback(
+    (id: number) => {
+      return favs.some((fav) => fav === id);
+    },
+    [favs]
+  );
 
-  const isFav = (id: number) => {
-    return favs.some((fav) => fav === id);
-  };
+  const contextValue = useMemo(
+    () => ({
+      favs,
+      addFav,
+      removeFav,
+      isFav,
+    }),
+    [favs, addFav, removeFav, isFav]
+  );
 
   return (
-    <FavsContext.Provider value={{ favs, addFav, removeFav, checkFav: isFav }}>
-      {children}
-    </FavsContext.Provider>
+    <FavsContext.Provider value={contextValue}>{children}</FavsContext.Provider>
   );
 };

@@ -1,3 +1,23 @@
+.typography {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--font-secondary);
+    }
+}
+
+.default {
+    color: var(--color-foreground);
+}
+
+.inverse {
+    color: var(--color-background);
+}
+
 .normal {
     font-weight: 400;
 }
@@ -6,42 +26,57 @@
     font-weight: 700;
 }
 
-.primary {
-    color: var(--color-primary);
-}
-
-.secondary {
-    color: var(--color-secondary);
-}
-
 .sm {
     font-size: 0.75rem;
 
-    @media (min-width: 80rem) {
+    @media (min-width: var(--screen-tablet)) {
         font-size: 0.875rem;
+    }
+
+    @media (min-width: var(--screen-desktop)) {
+        font-size: 1rem;
     }
 }
 
 .md {
     font-size: 0.875rem;
 
-    @media (min-width: 80rem) {
-        font-size: 1rem;
+    @media (min-width: var(--screen-tablet)) {
+        font-size: 1.125rem;
+    }
+
+    @media (min-width: var(--screen-desktop)) {
+        font-size: 1.25rem;
     }
 }
 
 .lg {
     font-size: 1.25rem;
 
-    @media (min-width: 80rem) {
-        font-size: 1.5rem;
+    @media (min-width: var(--screen-tablet)) {
+        font-size: 1.75rem;
+    }
+
+    @media (min-width: var(--screen-desktop)) {
+        font-size: 2rem;
     }
 }
 
 .xl {
     font-size: 2rem;
 
-    @media (min-width: 80rem) {
-        font-size: 2.5rem;
+    @media (min-width: var(--screen-tablet)) {
+        font-size: 2.75rem;
     }
+
+    @media (min-width: var(--screen-desktop)) {
+        font-size: 3rem;
+    }
+}
+
+.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 1.2;
 }

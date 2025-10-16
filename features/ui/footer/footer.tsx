@@ -2,15 +2,15 @@ import Container from "../container/container";
 import Typography from "../typography/typography";
 import styles from "./footer.module.css";
 
-const Footer = () => {
-  const { footer, footer__container, footer__highlighted } = styles;
+const { footer, footerContainer, footerHighlighted } = styles;
 
+const Footer = () => {
   return (
     <footer className={footer} data-testid="footer">
       <Container>
-        <div className={footer__container}>
-          <Typography as="h2" size="lg" variant="primary" weight="bold">
-            Github <span className={footer__highlighted}>Users</span>
+        <div className={footerContainer}>
+          <Typography as="h2" size="lg" weight="bold">
+            Github <span className={footerHighlighted}>Users</span>
           </Typography>
         </div>
       </Container>

@@ -3,14 +3,14 @@
     color: var(--color-primary);
     box-shadow: 0 2px 4px 0 rgba(255, 255, 255, .05);
 
-    &__container {
+    &Container {
         height: var(--layout-navbar-height);
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
 
-    &__highlighted {
+    &Highlighted {
         color: var(--color-accent);
     }
 }

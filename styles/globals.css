@@ -1,29 +1,13 @@
 @import url("./reset.css");
 @import url("./abstracts.css");
 
-@media (prefers-color-scheme: dark) {
-  body {
-    --color-foreground: var(--color-primary);
-    --color-background: var(--color-secondary);
-  }
-}
-
 body {
   color: var(--color-foreground);
   background-color: var(--color-background);
   font-family: var(--font-primary);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-secondary);
-}
-
-.global-layout {
+.globalLayout {
   display: grid;
   gap: 1rem;
   grid-template-rows: var(--layout-navbar-height) 1fr var(--layout-footer-height);

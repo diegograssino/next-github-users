@@ -3,7 +3,7 @@
     flex-direction: column;
     gap: 1rem;
 
-    &__info-section {
+    &InfoSection {
         display: flex;
         flex-direction: column;
         gap: 1rem;
@@ -13,7 +13,7 @@
         }
     }
 
-    &__header {
+    &Header {
         display: flex;
         flex-direction: column;
         gap: 1rem;
@@ -32,7 +32,7 @@
         }
     }
 
-    &__info {
+    &Info {
         display: flex;
         flex-direction: column;
         box-sizing: border-box;
@@ -43,7 +43,7 @@
         border-radius: 0.5rem;
     }
 
-    &__stats {
+    &Stats {
         display: grid;
         grid-template-columns: repeat(1, minmax(0, 1fr));
 
@@ -55,7 +55,7 @@
         }
     }
 
-    &__repos {
+    &Repos {
         display: flex;
         flex-direction: column;
         box-sizing: border-box;
@@ -66,13 +66,13 @@
         border-radius: 0.5rem;
     }
 
-    &__repos-list {
+    &ReposList {
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
     }
 
-    &__repos-item {
+    &ReposItem {
         display: flex;
     }
 }

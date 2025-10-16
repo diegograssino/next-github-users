@@ -6,11 +6,24 @@ import Image from "next/image";
 import FavsWidget from "../favs-widget/favs-widget";
 import styles from "./user-detail.module.css";
 
+const {
+  detail,
+  detailInfoSection,
+  detailHeader,
+  detailInfo,
+  detailStats,
+  detailBio,
+  detailRepos,
+  detailReposList,
+  detailReposItem,
+} = styles;
+
 const UserDetail = ({ user, repos }: UserDetailProps) => {
+  // TODO Fix UI
   return (
-    <article className={styles["detail"]}>
-      <div className={styles["detail__info-section"]}>
-        <header className={styles["detail__header"]}>
+    <article className={detail}>
+      <div className={detailInfoSection}>
+        <header className={detailHeader}>
           <Typography weight="bold" size="lg" as="h2">
             {user.login}
           </Typography>
@@ -24,11 +37,11 @@ const UserDetail = ({ user, repos }: UserDetailProps) => {
             <FavsWidget id={user.id} />
           </div>
         </header>
-        <div className={styles["detail__info"]}>
+        <div className={detailInfo}>
           <Typography as="h3" size="md" weight="bold">
             User Details
           </Typography>
-          <div className={styles["detail__stats"]}>
+          <div className={detailStats}>
             <Typography as="p" size="md">
               Followers: {user.followers}
             </Typography>
@@ -39,22 +52,22 @@ const UserDetail = ({ user, repos }: UserDetailProps) => {
               Public Repos: {user.public_repos}
             </Typography>
           </div>
-          <div className={styles["detail__bio"]}>
+          <div className={detailBio}>
             <Typography as="p" size="md">
               Bio: {user.bio || "No bio available"}
             </Typography>
           </div>
         </div>
       </div>
-      <div className={styles["detail__repos"]}>
+      <div className={detailRepos}>
         <Typography as="h3" size="md" weight="bold">
           Repositories
         </Typography>
         {repos.length > 0 ? (
-          <ul className={styles["detail__repos-list"]}>
+          <ul className={detailReposList}>
             {repos.map((repo, i) => (
-              <li key={repo.id + i} className={styles["detail__repos-item"]}>
-                <Icon name="arrow-right" size="sm" variant="secondary" />
+              <li key={repo.id + i} className={detailReposItem}>
+                <Icon name="arrow-right" size="sm" />
                 <Anchor
                   href={repo.html_url}
                   target="_blank"

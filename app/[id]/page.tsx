@@ -1,10 +1,11 @@
+import UserDetailPage from "@/features/pages/user-detail-page/user-detail-page";
 import Typography from "@/features/ui/typography/typography";
 import { fetchUserDetail } from "@/features/users/services";
-import UserDetail from "@/features/users/ui/userDetail/user-detail";
 import { UserPageProps } from "@/types";
 import { Params } from "next/dist/server/request/params";
 
 export default async function UserPage({ params }: UserPageProps) {
+  // TODO move fetching logic to a service
   const { id } = (await params) as Params;
   const { user, repos } = await fetchUserDetail(Number(id));
 
@@ -16,5 +17,5 @@ export default async function UserPage({ params }: UserPageProps) {
     );
   }
 
-  return <UserDetail user={user} repos={repos} />;
+  return <UserDetailPage user={user} repos={repos} />;
 }
