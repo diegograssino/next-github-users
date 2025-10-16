@@ -5,7 +5,6 @@ import { UserPageProps } from "@/types";
 import { Params } from "next/dist/server/request/params";
 
 export default async function UserPage({ params }: UserPageProps) {
-  // TODO move fetching logic to a service
   const { id } = (await params) as Params;
   const { user, repos } = await fetchUserDetail(Number(id));
 

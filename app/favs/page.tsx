@@ -13,6 +13,7 @@ export default function Favs() {
 
   const isMobile = useMediaQuery("(max-width: 30rem)");
   const isTablet = useMediaQuery("(max-width: 48rem)");
+  // TODO move perPage logics to an utils file
   const perPage = isMobile ? "6" : isTablet ? "12" : "15";
 
   // TODO move fetching logic to a service

@@ -17,6 +17,7 @@ const HomePage = ({ initialUsers }: HomePageProps) => {
   const [debouncedSearch] = useDebounceValue(searchTerm, 1000);
   const isMobile = useMediaQuery("(max-width: 30rem)");
   const isTablet = useMediaQuery("(max-width: 48rem)");
+  // TODO move perPage logics to an utils file
   const perPage = useMemo(() => {
     return isMobile ? "6" : isTablet ? "12" : "15";
   }, [isMobile, isTablet]);
@@ -48,6 +49,7 @@ const HomePage = ({ initialUsers }: HomePageProps) => {
           pageStart={0}
           loadMore={handleLoadMore}
           hasMore={isMore}
+          threshold={700}
         >
           <CardGrid>
             {users.map((user, i) => (

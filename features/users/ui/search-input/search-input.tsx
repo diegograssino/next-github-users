@@ -12,6 +12,7 @@ const SearchInput = ({
 }: SearchInputProps) => {
   // TODO Should be smaller on mobile
   // TODO The spinner is not centered
+  // TODO make the search bar sticky on top when scrolling
   const { isLoading } = useContext(SharedContext);
 
   return (
