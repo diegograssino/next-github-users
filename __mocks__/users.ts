@@ -2,7 +2,7 @@ import { User } from "@/types";
 
 export const usersMock: User[] = [
   {
-    login: "m ojombo",
+    login: "mojombo",
     id: 1,
     node_id: "MDQ6VXNlcjE=",
     avatar_url: "https://avatars.githubusercontent.com/u/1?v=4",
