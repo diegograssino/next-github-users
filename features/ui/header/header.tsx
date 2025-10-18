@@ -2,7 +2,7 @@ import Link from "next/link";
 import Container from "../Container/Container";
 import FavsAnchor from "../FavsAnchor/FavsAnchor";
 import Typography from "../Typography/Typography";
-import styles from "./header.module.scss";
+import styles from "./Header.module.scss";
 
 const { navbar, navbarContainer } = styles;
 
