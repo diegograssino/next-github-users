@@ -1,10 +1,19 @@
-import { pageMessages } from "@/features/ui/page-message/page-messages";
+import { pageMessages } from "@/features/ui/PageMessage/PageMessage.constants";
 import Link from "next/link";
 import { ElementType, HTMLAttributes, JSX } from "react";
 
-export type Variants = "primary" | "secondary" | "accent";
-export type TypographyColorVariants = "default" | "inverse";
-export type TypographyWeightVariants = "normal" | "bold";
+export type ColorVariants =
+  | "default"
+  | "inverse"
+  | "primary"
+  | "secondary"
+  | "accent"
+  | "accent2"
+  | "success"
+  | "error"
+  | "warning";
+
+export type WeightVariants = "thin" | "normal" | "bold";
 
 export type Sizes = "sm" | "md" | "lg" | "xl";
 export interface ContainerProps extends HTMLAttributes<HTMLOrSVGElement> {
@@ -23,16 +32,15 @@ type TypographyElements =
 export interface TypographyProps extends HTMLAttributes<HTMLOrSVGElement> {
   as?: TypographyElements;
   size?: Sizes;
-  weight?: TypographyWeightVariants;
+  weight?: WeightVariants;
   truncate?: boolean;
-  variant?: TypographyColorVariants;
+  variant?: ColorVariants;
 }
 
 export interface AnchorProps extends React.ComponentProps<typeof Link> {
-  variant?: Variants;
+  variant?: ColorVariants;
   size?: Sizes;
-  weight?: "normal" | "bold";
-  withAccent?: boolean;
+  weight?: WeightVariants;
 }
 
 export type IconNames =
@@ -44,8 +52,7 @@ export type IconNames =
 export interface IconProps {
   name: IconNames;
   size?: Sizes;
-  hasInverseColors?: boolean;
-  fill?: "accent" | "accent2" | null;
+  variant?: ColorVariants;
 }
 
 export type Icons = {

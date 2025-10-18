@@ -1,9 +1,9 @@
-import Typography from "@/features/ui/typography/typography";
+import { Typography } from "@/features/ui";
 import { CardProps } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
-import FavsWidget from "../favs-widget/favs-widget";
-import styles from "./card.module.css";
+import FavsWidget from "../FavsWidget/FavsWidget";
+import styles from "./Card.module.scss";
 
 const { card, cardContent, cardOptions } = styles;
 

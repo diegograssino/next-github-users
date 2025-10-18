@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
-import { default as Header } from "./header";
+import Header from ".";
 
 describe("Navbar", () => {
   test("should render", () => {

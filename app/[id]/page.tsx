@@ -1,5 +1,5 @@
-import UserDetailPage from "@/features/pages/user-detail-page/user-detail-page";
-import Typography from "@/features/ui/typography/typography";
+import UserDetailPage from "@/features/pages/UserDetailPage/UserDetailPage";
+import { Typography } from "@/features/ui";
 import { fetchUserDetail } from "@/features/users/services";
 import { UserPageProps } from "@/types";
 import { Params } from "next/dist/server/request/params";
@@ -8,6 +8,7 @@ export default async function UserPage({ params }: UserPageProps) {
   const { id } = (await params) as Params;
   const { user, repos } = await fetchUserDetail(Number(id));
   // TODO explore implement slugs with username
+
   if (!user) {
     return (
       <Typography weight="bold" size="xl" as="h2">

@@ -1,7 +1,7 @@
 import { usersMock } from "@/__mocks__/users";
 import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
-import { default as Card } from "./card";
+import Card from "./Card";
 
 describe("Card", () => {
   test("should render", () => {

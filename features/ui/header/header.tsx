@@ -1,10 +1,10 @@
 import Link from "next/link";
-import Container from "../container/container";
-import FavsAnchor from "../favs-anchor/favs-anchor";
-import Typography from "../typography/typography";
-import styles from "./header.module.css";
+import Container from "../Container/Container";
+import FavsAnchor from "../FavsAnchor/FavsAnchor";
+import Typography from "../Typography/Typography";
+import styles from "./header.module.scss";
 
-const { navbar, navbarContainer, navbarHighlighted } = styles;
+const { navbar, navbarContainer } = styles;
 
 const Header = () => {
   return (
@@ -12,8 +12,11 @@ const Header = () => {
       <Container>
         <nav className={navbarContainer}>
           <Link href="/">
-            <Typography as="h1" size="lg" weight="bold">
-              Github <span className={navbarHighlighted}>Users</span>
+            <Typography as="h1" size="lg" weight="bold" variant="primary">
+              Github{" "}
+              <Typography as="span" size="lg" weight="bold" variant="accent">
+                Users
+              </Typography>
             </Typography>
           </Link>
           <ul>

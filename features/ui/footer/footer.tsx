@@ -1,6 +1,6 @@
-import Container from "../container/container";
-import Typography from "../typography/typography";
-import styles from "./footer.module.css";
+import Container from "../Container/Container";
+import Typography from "../Typography/Typography";
+import styles from "./Footer.module.scss";
 
 const { footer, footerContainer, footerHighlighted } = styles;
 

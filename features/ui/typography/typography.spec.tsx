@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
-import { default as Typography } from "./typography";
+import Typography from "./Typography";
 
 describe("Typography", () => {
   test("should render", () => {

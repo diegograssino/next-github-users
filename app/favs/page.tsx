@@ -1,9 +1,9 @@
 "use client";
-import FavsPage from "@/features/pages/favs-page/favs-page";
-import Typography from "@/features/ui/typography/typography";
-import { FavsContext } from "@/features/users/contexts/favs-context";
+import FavsPage from "@/features/pages/FavsPage/FavsPage";
+import { Typography } from "@/features/ui";
+import { FavsContext } from "@/features/users/contexts/FavsContext";
 import { fetchUser } from "@/features/users/services";
-import { CardGridSkeleton } from "@/features/users/ui/card-grid/card-grid";
+import { CardGridSkeleton } from "@/features/users/ui/CardGrid/CardGrid";
 import { useQueries } from "@tanstack/react-query";
 import { useContext } from "react";
 import { useMediaQuery } from "usehooks-ts";

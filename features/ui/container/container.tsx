@@ -1,5 +1,5 @@
 import { ContainerProps } from "@/types";
-import styles from "./container.module.css";
+import styles from "./Container.module.scss";
 
 const { container } = styles;
 

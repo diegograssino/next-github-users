@@ -1,4 +1,4 @@
-import HomePage from "@/features/pages/home-page/home-page";
+import HomePage from "@/features/pages/HomePage/HomePage";
 import { fetchUsersAction } from "@/features/users/server/actions";
 
 const Home = async () => {

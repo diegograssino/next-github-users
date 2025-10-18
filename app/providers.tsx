@@ -1,6 +1,6 @@
 "use client";
-import { SharedProvider } from "@/features/shared/contexts/shared-context";
-import { FavsProvider } from "@/features/users/contexts/favs-context";
+import { SharedProvider } from "@/features/shared/contexts/SharedContext";
+import { FavsProvider } from "@/features/users/contexts/FavsContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import React from "react";

@@ -1,8 +1,8 @@
 import { TypographyProps } from "@/types";
 import clsx from "clsx";
-import styles from "./typography.module.css";
+import styles from "./Typography.module.scss";
 
-const { ellipsis } = styles;
+const { typography, ellipsis } = styles;
 
 const Typography = ({
   children,
@@ -17,6 +17,7 @@ const Typography = ({
     <Tag
       {...otherProps}
       className={clsx(
+        typography,
         styles[variant],
         styles[weight],
         styles[size],

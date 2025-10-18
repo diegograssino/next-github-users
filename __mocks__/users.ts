@@ -1,6 +1,8 @@
-export const usersMock = [
+import { User } from "@/types";
+
+export const usersMock: User[] = [
   {
-    login: "mojombo",
+    login: "m ojombo",
     id: 1,
     node_id: "MDQ6VXNlcjE=",
     avatar_url: "https://avatars.githubusercontent.com/u/1?v=4",
@@ -20,6 +22,10 @@ export const usersMock = [
     type: "User",
     user_view_type: "public",
     site_admin: false,
+    followers: 0,
+    following: 0,
+    public_repos: 0,
+    bio: null,
   },
   {
     login: "defunkt",
@@ -42,6 +48,10 @@ export const usersMock = [
     type: "User",
     user_view_type: "public",
     site_admin: false,
+    followers: 0,
+    following: 0,
+    public_repos: 0,
+    bio: null,
   },
   {
     login: "pjhyett",
@@ -64,6 +74,10 @@ export const usersMock = [
     type: "User",
     user_view_type: "public",
     site_admin: false,
+    followers: 0,
+    following: 0,
+    public_repos: 0,
+    bio: null,
   },
   {
     login: "wycats",
@@ -85,6 +99,10 @@ export const usersMock = [
     type: "User",
     user_view_type: "public",
     site_admin: false,
+    followers: 0,
+    following: 0,
+    public_repos: 0,
+    bio: null,
   },
   {
     login: "ezmobius",
@@ -108,6 +126,10 @@ export const usersMock = [
     type: "User",
     user_view_type: "public",
     site_admin: false,
+    followers: 0,
+    following: 0,
+    public_repos: 0,
+    bio: null,
   },
   {
     login: "ivey",
@@ -129,6 +151,10 @@ export const usersMock = [
     type: "User",
     user_view_type: "public",
     site_admin: false,
+    followers: 0,
+    following: 0,
+    public_repos: 0,
+    bio: null,
   },
   {
     login: "evanphx",
@@ -151,6 +177,10 @@ export const usersMock = [
     type: "User",
     user_view_type: "public",
     site_admin: false,
+    followers: 0,
+    following: 0,
+    public_repos: 0,
+    bio: null,
   },
   {
     login: "vanpelt",
@@ -173,6 +203,10 @@ export const usersMock = [
     type: "User",
     user_view_type: "public",
     site_admin: false,
+    followers: 0,
+    following: 0,
+    public_repos: 0,
+    bio: null,
   },
   {
     login: "wayneeseguin",
@@ -198,6 +232,10 @@ export const usersMock = [
     type: "User",
     user_view_type: "public",
     site_admin: false,
+    followers: 0,
+    following: 0,
+    public_repos: 0,
+    bio: null,
   },
   {
     login: "brynary",
@@ -220,6 +258,10 @@ export const usersMock = [
     type: "User",
     user_view_type: "public",
     site_admin: false,
+    followers: 0,
+    following: 0,
+    public_repos: 0,
+    bio: null,
   },
   {
     login: "kevinclark",
@@ -244,6 +286,10 @@ export const usersMock = [
     type: "User",
     user_view_type: "public",
     site_admin: false,
+    followers: 0,
+    following: 0,
+    public_repos: 0,
+    bio: null,
   },
   {
     login: "technoweenie",
@@ -269,6 +315,10 @@ export const usersMock = [
     type: "User",
     user_view_type: "public",
     site_admin: false,
+    followers: 0,
+    following: 0,
+    public_repos: 0,
+    bio: null,
   },
   {
     login: "macournoyer",
@@ -293,6 +343,10 @@ export const usersMock = [
     type: "User",
     user_view_type: "public",
     site_admin: false,
+    followers: 0,
+    following: 0,
+    public_repos: 0,
+    bio: null,
   },
   {
     login: "takeo",
@@ -314,6 +368,10 @@ export const usersMock = [
     type: "User",
     user_view_type: "public",
     site_admin: false,
+    followers: 0,
+    following: 0,
+    public_repos: 0,
+    bio: null,
   },
   {
     login: "caged",
@@ -335,6 +393,10 @@ export const usersMock = [
     type: "User",
     user_view_type: "public",
     site_admin: false,
+    followers: 0,
+    following: 0,
+    public_repos: 0,
+    bio: null,
   },
   {
     login: "topfunky",
@@ -358,6 +420,10 @@ export const usersMock = [
     type: "User",
     user_view_type: "public",
     site_admin: false,
+    followers: 0,
+    following: 0,
+    public_repos: 0,
+    bio: null,
   },
   {
     login: "anotherjesse",
@@ -383,6 +449,10 @@ export const usersMock = [
     type: "User",
     user_view_type: "public",
     site_admin: false,
+    followers: 0,
+    following: 0,
+    public_repos: 0,
+    bio: null,
   },
   {
     login: "roland",
@@ -404,6 +474,10 @@ export const usersMock = [
     type: "User",
     user_view_type: "public",
     site_admin: false,
+    followers: 0,
+    following: 0,
+    public_repos: 0,
+    bio: null,
   },
   {
     login: "lukas",
@@ -425,6 +499,10 @@ export const usersMock = [
     type: "User",
     user_view_type: "public",
     site_admin: false,
+    followers: 0,
+    following: 0,
+    public_repos: 0,
+    bio: null,
   },
   {
     login: "fanvsfan",
@@ -448,6 +526,10 @@ export const usersMock = [
     type: "User",
     user_view_type: "public",
     site_admin: false,
+    followers: 0,
+    following: 0,
+    public_repos: 0,
+    bio: null,
   },
   {
     login: "tomtt",
@@ -469,6 +551,10 @@ export const usersMock = [
     type: "User",
     user_view_type: "public",
     site_admin: false,
+    followers: 0,
+    following: 0,
+    public_repos: 0,
+    bio: null,
   },
   {
     login: "railsjitsu",
@@ -493,6 +579,10 @@ export const usersMock = [
     type: "User",
     user_view_type: "public",
     site_admin: false,
+    followers: 0,
+    following: 0,
+    public_repos: 0,
+    bio: null,
   },
   {
     login: "nitay",
@@ -514,6 +604,10 @@ export const usersMock = [
     type: "User",
     user_view_type: "public",
     site_admin: false,
+    followers: 0,
+    following: 0,
+    public_repos: 0,
+    bio: null,
   },
   {
     login: "kevwil",
@@ -535,6 +629,10 @@ export const usersMock = [
     type: "User",
     user_view_type: "public",
     site_admin: false,
+    followers: 0,
+    following: 0,
+    public_repos: 0,
+    bio: null,
   },
   {
     login: "KirinDave",
@@ -559,6 +657,10 @@ export const usersMock = [
     type: "User",
     user_view_type: "public",
     site_admin: false,
+    followers: 0,
+    following: 0,
+    public_repos: 0,
+    bio: null,
   },
   {
     login: "jamesgolick",
@@ -583,6 +685,10 @@ export const usersMock = [
     type: "User",
     user_view_type: "public",
     site_admin: false,
+    followers: 0,
+    following: 0,
+    public_repos: 0,
+    bio: null,
   },
   {
     login: "atmos",
@@ -604,6 +710,10 @@ export const usersMock = [
     type: "User",
     user_view_type: "public",
     site_admin: false,
+    followers: 0,
+    following: 0,
+    public_repos: 0,
+    bio: null,
   },
   {
     login: "errfree",
@@ -626,6 +736,10 @@ export const usersMock = [
     type: "Organization",
     user_view_type: "public",
     site_admin: false,
+    followers: 0,
+    following: 0,
+    public_repos: 0,
+    bio: null,
   },
   {
     login: "mojodna",
@@ -648,6 +762,10 @@ export const usersMock = [
     type: "User",
     user_view_type: "public",
     site_admin: false,
+    followers: 0,
+    following: 0,
+    public_repos: 0,
+    bio: null,
   },
   {
     login: "bmizerany",
@@ -672,6 +790,10 @@ export const usersMock = [
     type: "User",
     user_view_type: "public",
     site_admin: false,
+    followers: 0,
+    following: 0,
+    public_repos: 0,
+    bio: null,
   },
   ...Array.from({ length: 200 }, (_, i) => {
     const id = 100 + i;
@@ -695,6 +817,10 @@ export const usersMock = [
       type: "User",
       user_view_type: "public",
       site_admin: false,
+      followers: 0,
+      following: 0,
+      public_repos: 0,
+      bio: null,
     };
   }),
 ];

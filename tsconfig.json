@@ -27,7 +27,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "features/users/ui/favs-widget"
+    "features/users/ui/FavsWidget"
   ],
   "exclude": ["node_modules"]
 }

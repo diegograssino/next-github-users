@@ -1,5 +1,5 @@
 import { Container, Footer, Header } from "@/features/ui";
-import "@/styles/globals.css";
+import "@/styles/globals.scss";
 import clsx from "clsx";
 import type { Metadata } from "next";
 import { Poppins, Roboto } from "next/font/google";
